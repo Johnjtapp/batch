@@ -1,12 +1,13 @@
 :: Requires ImageMagick be installed.
 
 @echo off
-setlocal EnableDelayedExpansion ::So we can actually increment count in the loop
+::So we can actually increment count in the loop
+setlocal EnableDelayedExpansion 
 set count=0 
 
 set "inputDir=%~1"
-set "backupDir=convertedFiles" 
 ::Catch rather than delete, just in case something goes wrong.
+set "backupDir=origFiles\%inputDir%" 
 
 if not exist "%backupDir%" (
     mkdir "%backupDir%"
